@@ -1,65 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Anthony Anderson | Portfolio</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f6f8;
-}
-.header {
-    background-color: #1f2933;
-    color: white;
-    padding: 40px;
-    text-align: center;
-}
-.section {
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-}
-.project {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anthony Anderson | Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
-
 <body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="name">Anthony Anderson</div>
+        <div class="tag">Industrial Engineering • Systems & Automation • Portfolio</div>
+      </div>
+      <div class="nav">
+        <a class="chip active" href="index.html">Home</a>
+        <a class="chip" href="projects.html">Projects</a>
+        <a class="chip" href="experience.html">Experience</a>
+        <a class="chip" href="education.html">Education</a>
+        <a class="chip" href="about.html">About</a>
+      </div>
+    </div>
 
-<div class="header">
-<h1>Anthony Anderson</h1>
-<p>Industrial Engineering Student | Systems Builder</p>
-</div>
+    <div class="hero">
+      <h1>Portfolio</h1>
+      <p>
+        A clean, professional space to showcase systems I’ve built, real-world work experience, and academic work.
+        Use the tiles below to explore.
+      </p>
+    </div>
 
-<div class="section">
-<h2>About Me</h2>
-<p>
-I design scalable, data-driven systems to improve operational efficiency. My work focuses on maintenance automation, process improvement, and structured asset management using tools like Power Apps, SharePoint, and Power BI.
-</p>
-</div>
+    <div class="grid4">
+      <!-- NOTE: Replace the background-image URLs with your own images later
+           Put images in your repo (e.g., /assets/projects.jpg) and change these URLs. -->
 
-<div class="section">
-<h2>Projects</h2>
+      <a class="cardLink" href="projects.html" aria-label="Projects">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1600&q=70');"></div>
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="title">
+            <h2>Projects</h2>
+            <div class="pill">View Builds</div>
+          </div>
+          <p>CMMS, digitization systems, and capstone work — with screenshots and feature breakdowns.</p>
+        </div>
+      </a>
 
-<div class="project">
-<h3>CMMS Development</h3>
-<p>
-Designed and deployed a custom maintenance management system integrating preventive maintenance tracking, inventory management, and automated workflows using Power Apps and SharePoint.
-</p>
-</div>
+      <a class="cardLink" href="experience.html" aria-label="Experience">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=70');"></div>
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="title">
+            <h2>Experience</h2>
+            <div class="pill">Roles</div>
+          </div>
+          <p>Internship roles, responsibilities, and impact — structured like a recruiter-friendly resume page.</p>
+        </div>
+      </a>
 
-</div>
+      <a class="cardLink" href="education.html" aria-label="Education">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=70');"></div>
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="title">
+            <h2>Education</h2>
+            <div class="pill">Programs</div>
+          </div>
+          <p>Manufacturing program, honors program, and degree program — plus relevant coursework & highlights.</p>
+        </div>
+      </a>
 
-<div class="section">
-<h2>Contact</h2>
-<p>
-<a href="https://www.linkedin.com">LinkedIn</a>
-</p>
-</div>
+      <a class="cardLink" href="about.html" aria-label="About">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=70');"></div>
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="title">
+            <h2>About</h2>
+            <div class="pill">Bio</div>
+          </div>
+          <p>Your story, interests, what drives you, and links to your GitHub/LinkedIn/resume.</p>
+        </div>
+      </a>
+    </div>
 
+    <div class="footer">© <span id="y"></span> Anthony Anderson • Built on GitHub Pages</div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
