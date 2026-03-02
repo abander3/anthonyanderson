@@ -156,7 +156,8 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   inset:0;
   background-size: cover;
-  background-position:center;
+  background-position: center center;
+  background-repeat: no-repeat;
   filter: saturate(1.05) contrast(1.03);
   transform: scale(1.03);
   transition: transform .25s ease;
