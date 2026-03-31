@@ -521,20 +521,25 @@ a{ color:inherit; text-decoration:none; }
   width: 56px;
   height: 56px;
   border-radius: 12px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.12);
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
-
-
+.logoBox{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.logoBox:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
 .logoBox img{
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   
+  padding: 6px;         
 }
 .role{
   display:flex;
