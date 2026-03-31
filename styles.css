@@ -249,6 +249,7 @@ a{ color:inherit; text-decoration:none; }
   border-radius: 22px;
   display:block;
   background: rgba(255,255,255,0.04);
+  image-rendering: auto;
 }
 
 .quickPoints{
