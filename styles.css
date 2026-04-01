@@ -870,7 +870,7 @@ a{ color:inherit; text-decoration:none; }
     margin-left: 22px;
     font-size: 15px;
   }
-}
+
 /* ===================== */
 /* DROPDOWN SECTIONS */
 /* ===================== */
@@ -1030,4 +1030,5 @@ a{ color:inherit; text-decoration:none; }
   height:180px;
   background: rgba(255,255,255,0.08);
   border-radius: 12px;
+}
 }
