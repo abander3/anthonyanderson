@@ -591,135 +591,112 @@
     </div>
   </div>
 
-  <script>
-  let primaryFilter = 'all';
+ <script>
+  let primaryFilter = "all";
 
-  function toggleDropdown(el) {
-    const content = el.nextElementSibling;
-    content.classList.toggle("open");
-    el.classList.toggle("active");
+  const qs = (s, p = document) => p.querySelector(s);
+  const qsa = (s, p = document) => [...p.querySelectorAll(s)];
+
+  function toggleDropdown(header) {
+    header.classList.toggle("active");
+    header.nextElementSibling.classList.toggle("open");
   }
 
-  function openModal(id){
-    document.getElementById(id).style.display = "flex";
+  function openModal(id) {
+    qs(`#${id}`).style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 
-  function closeModal(id){
-    document.getElementById(id).style.display = "none";
+  function closeModal(id) {
+    qs(`#${id}`).style.display = "none";
     document.body.style.overflow = "";
   }
 
-  window.addEventListener('click', function(e){
-    document.querySelectorAll('.modal').forEach(modal => {
-      if(e.target === modal){
-        modal.style.display = 'none';
+  window.addEventListener("click", e => {
+    qsa(".modal").forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
         document.body.style.overflow = "";
       }
     });
   });
 
-  function setPrimaryFilter(e, type){
+  function setPrimaryFilter(e, type) {
     primaryFilter = type;
-    document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
-    e.currentTarget.classList.add('active');
+    qsa(".filterBtn").forEach(btn => btn.classList.remove("active"));
+    e.currentTarget.classList.add("active");
     applyFilters();
   }
 
-  function toggleToolFilter(btn){
-    const panel = btn.nextElementSibling;
-    btn.classList.toggle('active');
-    panel.classList.toggle('open');
+  function toggleToolFilter(btn) {
+    btn.classList.toggle("active");
+    btn.nextElementSibling.classList.toggle("open");
   }
 
-  function toggleViewAllTools(){
-    const viewAll = document.getElementById('viewAllTools');
-    const toolCheckboxes = document.querySelectorAll('.toolCheck');
-
-    if(viewAll.checked){
-      toolCheckboxes.forEach(cb => cb.checked = false);
-    }
-
+  function toggleViewAllTools() {
+    const viewAll = qs("#viewAllTools");
+    if (viewAll.checked) qsa(".toolCheck").forEach(cb => cb.checked = false);
     applyFilters();
   }
 
-  function buildToolFilters(){
-    const cards = document.querySelectorAll('.timelineCard');
-    const toolsSet = new Set();
+  function handleToolCheckChange() {
+    const checkedCount = qsa(".toolCheck:checked").length;
+    qs("#viewAllTools").checked = checkedCount === 0;
+    applyFilters();
+  }
 
-    cards.forEach(card => {
-      const tools = (card.dataset.tools || '')
-        .split('|')
+  function buildToolFilters() {
+    const tools = new Set();
+
+    qsa(".timelineCard").forEach(card => {
+      (card.dataset.tools || "")
+        .split("|")
         .map(t => t.trim())
-        .filter(Boolean);
-
-      tools.forEach(tool => toolsSet.add(tool));
+        .filter(Boolean)
+        .forEach(tool => tools.add(tool));
     });
 
-    const sortedTools = Array.from(toolsSet).sort((a, b) => a.localeCompare(b));
-    const container = document.getElementById('toolOptions');
-
-    container.innerHTML = sortedTools.map(tool => `
-      <label class="toolOption">
-        <input type="checkbox" class="toolCheck" value="${tool}" onchange="handleToolCheckChange()">
-        <span>${tool}</span>
-      </label>
-    `).join('');
+    qs("#toolOptions").innerHTML = [...tools]
+      .sort((a, b) => a.localeCompare(b))
+      .map(tool => `
+        <label class="toolOption">
+          <input type="checkbox" class="toolCheck" value="${tool}" onchange="handleToolCheckChange()">
+          <span>${tool}</span>
+        </label>
+      `)
+      .join("");
   }
 
-  function handleToolCheckChange(){
-    const viewAll = document.getElementById('viewAllTools');
-    const checkedTools = Array.from(document.querySelectorAll('.toolCheck:checked'));
+  function applyFilters() {
+    const viewAll = qs("#viewAllTools").checked;
+    const mode = qs('input[name="toolMode"]:checked').value;
+    const selectedTools = qsa(".toolCheck:checked").map(cb => cb.value);
 
-    if(checkedTools.length > 0){
-      viewAll.checked = false;
-    } else {
-      viewAll.checked = true;
-    }
-
-    applyFilters();
-  }
-
-  function applyFilters(){
-    const viewAll = document.getElementById('viewAllTools').checked;
-    const selectedTools = Array.from(document.querySelectorAll('.toolCheck:checked')).map(cb => cb.value);
-    const mode = document.querySelector('input[name="toolMode"]:checked').value;
-
-    document.querySelectorAll('.dropdownSection').forEach(section => {
-      const cards = section.querySelectorAll('.timelineCard');
+    qsa(".dropdownSection").forEach(section => {
       let visibleCount = 0;
 
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || '').split(' ').filter(Boolean);
-        const tools = (card.dataset.tools || '').split('|').map(t => t.trim()).filter(Boolean);
+      qsa(".timelineCard", section).forEach(card => {
+        const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
+        const tools = (card.dataset.tools || "").split("|").map(t => t.trim()).filter(Boolean);
 
-        const passesPrimary =
-          primaryFilter === 'all' ||
-          tags.includes(primaryFilter);
+        const passesPrimary = primaryFilter === "all" || tags.includes(primaryFilter);
 
-        let passesTools = true;
+        const passesTools = viewAll || selectedTools.length === 0
+          ? true
+          : mode === "all"
+            ? selectedTools.every(tool => tools.includes(tool))
+            : selectedTools.some(tool => tools.includes(tool));
 
-        if(!viewAll && selectedTools.length > 0){
-          if(mode === 'any'){
-            passesTools = selectedTools.some(tool => tools.includes(tool));
-          } else {
-            passesTools = selectedTools.every(tool => tools.includes(tool));
-          }
-        }
-
-        const shouldShow = passesPrimary && passesTools;
-        card.style.display = shouldShow ? 'block' : 'none';
-
-        if(shouldShow){
-          visibleCount++;
-        }
+        const show = passesPrimary && passesTools;
+        card.style.display = show ? "" : "none";
+        if (show) visibleCount++;
       });
 
-      section.style.display = visibleCount > 0 ? 'block' : 'none';
+      section.style.display = visibleCount ? "" : "none";
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener("DOMContentLoaded", () => {
     buildToolFilters();
     applyFilters();
   });
