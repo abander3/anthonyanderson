@@ -28,14 +28,48 @@
       <p>Interactive timelines of systems, tools, and process improvements I’ve built across manufacturing and software environments.</p>
     </div>
 
-    <div class="filterBar">
-      <button class="filterBtn active" onclick="setFilter(event,'all')">All</button>
-      <button class="filterBtn" onclick="setFilter(event,'cs')">Computer Science</button>
-      <button class="filterBtn" onclick="setFilter(event,'manf')">Manufacturing</button>
+   <div class="filterSystem">
+
+  <!-- Primary filter -->
+  <div class="filterBar">
+    <button class="filterBtn active" onclick="setPrimaryFilter(event,'all')">All</button>
+    <button class="filterBtn" onclick="setPrimaryFilter(event,'cs')">Computer Science</button>
+    <button class="filterBtn" onclick="setPrimaryFilter(event,'manf')">Manufacturing</button>
+  </div>
+
+  <!-- Secondary tools filter -->
+  <div class="toolFilterWrap">
+    <button class="toolFilterToggle" onclick="toggleToolFilter(this)">
+      <span>Filter by tools/languages</span>
+      <span class="toolFilterIcon">+</span>
+    </button>
+
+    <div class="toolFilterPanel">
+      <label class="toolOption toolOptionPrimary">
+        <input type="checkbox" id="viewAllTools" checked onchange="toggleViewAllTools()">
+        <span>View all of my projects regardless of tool</span>
+      </label>
+
+      <div class="toolModeRow">
+        <span class="toolModeLabel">Match mode:</span>
+        <label class="toolModeOption">
+          <input type="radio" name="toolMode" value="any" checked onchange="applyFilters()">
+          <span>Projects using any checked tools</span>
+        </label>
+        <label class="toolModeOption">
+          <input type="radio" name="toolMode" value="all" onchange="applyFilters()">
+          <span>Projects using all checked tools</span>
+        </label>
+      </div>
+
+      <div id="toolOptions" class="toolOptions"></div>
     </div>
+  </div>
+
+</div>
 
     <!-- INTERNSHIP PROJECTS -->
-    <div class="dropdownSection">
+    <div class="dropdownSection" data-section="internship">
       <div class="dropdownHeader" onclick="toggleDropdown(this)">
         <h2>Internship Projects</h2>
         <span class="dropdownIcon">+</span>
@@ -44,8 +78,10 @@
       <div class="dropdownContent">
         <div class="timeline">
 
-          <div class="timelineCard" data-tags="cs manf" onclick="openModal('cmmsModal')">
-            <div class="timelineTop">
+          <div class="timelineCard"
+     data-tags="cs manf"
+     data-tools="Power Apps|SharePoint|Power Automate|Power BI|Project Management"
+     onclick="openModal('cmmsModal')">
               <div class="timelineDate">Last Worked 01/26</div>
               <div class="timelineOrg">Insituform</div>
             </div>
@@ -57,7 +93,10 @@
             </div>
           </div>
 
-          <div class="timelineCard" data-tags="cs manf" onclick="openModal('trackerModal')">
+          <div class="timelineCard"
+     data-tags="cs manf"
+     data-tools="Power Apps|SharePoint|Project Management"
+     onclick="openModal('trackerModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 01/26</div>
               <div class="timelineOrg">Insituform</div>
@@ -70,7 +109,10 @@
             </div>
           </div>
 
-          <div class="timelineCard" data-tags="manf" onclick="openModal('fiveSModal')">
+          <div class="timelineCard"
+     data-tags="manf"
+     data-tools="Lean Six Sigma|5S|Project Management"
+     onclick="openModal('fiveSModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 01/26</div>
               <div class="timelineOrg">Insituform</div>
@@ -83,7 +125,10 @@
             </div>
           </div>
 
-          <div class="timelineCard" data-tags="cs manf" onclick="openModal('startupModal')">
+          <div class="timelineCard"
+     data-tags="cs manf"
+     data-tools="Power Apps|Process Documentation|Project Management"
+     onclick="openModal('startupModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 01/25</div>
               <div class="timelineOrg">Corelle</div>
@@ -114,7 +159,7 @@
     </div>
 
     <!-- CME PROJECTS -->
-    <div class="dropdownSection">
+    <div class="dropdownSection" data-section="cme">
       <div class="dropdownHeader" onclick="toggleDropdown(this)">
         <h2>CME Projects</h2>
         <span class="dropdownIcon">+</span>
@@ -123,7 +168,10 @@
       <div class="dropdownContent">
         <div class="timeline">
 
-          <div class="timelineCard" data-tags="manf" onclick="openModal('capstoneModal')">
+          <div class="timelineCard"
+     data-tags="manf"
+     data-tools="Manufacturing|Project Management"
+     onclick="openModal('capstoneModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 04/26</div>
               <div class="timelineOrg">CME</div>
@@ -136,7 +184,10 @@
             </div>
           </div>
 
-         <div class="timelineCard" data-tags="manf" onclick="openModal('parkerModal')">
+         <div class="timelineCard"
+     data-tags="manf"
+     data-tools="Lean Six Sigma|Value Stream Mapping|Takt Time|Project Management|LucidChart"
+     onclick="openModal('parkerModal')">
   <div class="timelineTop">
     <div class="timelineDate">Last Worked 05/25</div>
     <div class="timelineOrg">Parker Hannifin</div>
@@ -149,7 +200,10 @@
   </div>
 </div>
 
-          <div class="timelineCard" data-tags="manf" onclick="openModal('nissanModal')">
+          <div class="timelineCard"
+     data-tags="manf"
+     data-tools="Lean Six Sigma|Takt Time|Line Balancing|Project Management"
+     onclick="openModal('nissanModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 09/25</div>
               <div class="timelineOrg">Nissan</div>
@@ -162,7 +216,10 @@
             </div>
           </div>
 
-          <div class="timelineCard" data-tags="manf" onclick="openModal('tapeModal')">
+          <div class="timelineCard"
+     data-tags="manf"
+     data-tools="Manufacturing|Product Design|Project Management"
+     onclick="openModal('tapeModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 04/25</div>
               <div class="timelineOrg">CME</div>
@@ -180,7 +237,7 @@
     </div>
 
     <!-- EDUCATIONAL PROJECTS -->
-    <div class="dropdownSection">
+    <div class="dropdownSection" data-section="education">
       <div class="dropdownHeader" onclick="toggleDropdown(this)">
         <h2>Educational Projects</h2>
         <span class="dropdownIcon">+</span>
@@ -391,18 +448,18 @@
      <div class="modalShot imageShot">
   <img src="assets/currentVSM.png" alt="Current State Value Stream Map">
 </div>
-      <div class="modalDesc">
-        <strong>Current State Map</strong><br/><br/>
-        Current-state value stream map documenting the existing production flow, process timing, and waiting periods across the line. This version captures the baseline condition before improvement work and highlights where time and flow losses were occurring.
-      </div>
+<div class="modalDesc">
+  <strong>Current State Map</strong><br><br>
+  Current-state value stream map documenting the existing production flow, process timing, and waiting periods across the line. This version captures the baseline condition before improvement work and highlights where time and flow losses were occurring.
+</div>
 
-      <div class="modalShot imageShot">
-        <img src="assets/futureVSM.png" alt="Future State Value Stream Map">
-      </div>
-      <div class="modalDesc">
-        <strong>Future State Map</strong><br/><br/>
-        Future-state value stream map showing the proposed process after improvements. The goal was to reduce waste, improve flow, and create a more efficient state through lean analysis and takt-based thinking.
-      </div>
+<div class="modalShot imageShot">
+  <img src="assets/futureVSM.png" alt="Future State Value Stream Map">
+</div>
+<div class="modalDesc">
+  <strong>Future State Map</strong><br><br>
+  Future-state value stream map showing the proposed process after improvements. The goal was to reduce waste, improve flow, and create a more efficient state through lean analysis and takt-based thinking.
+</div>
 
       <div class="modalShot">
         Group Photo Placeholder
@@ -521,43 +578,135 @@
   </div>
 
   <script>
-    function toggleDropdown(el) {
-      const content = el.nextElementSibling;
-      content.classList.toggle("open");
-      el.classList.toggle("active");
-    }
+  let primaryFilter = 'all';
 
-    function openModal(id){
-      document.getElementById(id).style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
+  function toggleDropdown(el) {
+    const content = el.nextElementSibling;
+    content.classList.toggle("open");
+    el.classList.toggle("active");
+  }
 
-    function closeModal(id){
-      document.getElementById(id).style.display = "none";
-      document.body.style.overflow = "";
-    }
+  function openModal(id){
+    document.getElementById(id).style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
 
-    function setFilter(e, type){
-      document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
-      e.currentTarget.classList.add('active');
+  function closeModal(id){
+    document.getElementById(id).style.display = "none";
+    document.body.style.overflow = "";
+  }
 
-      document.querySelectorAll('.timelineCard').forEach(card => {
-        if(type === 'all'){
-          card.style.display = "block";
-        } else {
-          card.style.display = card.dataset.tags.includes(type) ? "block" : "none";
-        }
-      });
-    }
-
-    window.addEventListener('click', function(e){
-      document.querySelectorAll('.modal').forEach(modal => {
-        if(e.target === modal){
-          modal.style.display = 'none';
-          document.body.style.overflow = "";
-        }
-      });
+  window.addEventListener('click', function(e){
+    document.querySelectorAll('.modal').forEach(modal => {
+      if(e.target === modal){
+        modal.style.display = 'none';
+        document.body.style.overflow = "";
+      }
     });
-  </script>
-</body>
-</html>
+  });
+
+  function setPrimaryFilter(e, type){
+    primaryFilter = type;
+    document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    applyFilters();
+  }
+
+  function toggleToolFilter(btn){
+    const panel = btn.nextElementSibling;
+    btn.classList.toggle('active');
+    panel.classList.toggle('open');
+  }
+
+  function toggleViewAllTools(){
+    const viewAll = document.getElementById('viewAllTools');
+    const toolCheckboxes = document.querySelectorAll('.toolCheck');
+
+    if(viewAll.checked){
+      toolCheckboxes.forEach(cb => cb.checked = false);
+    }
+
+    applyFilters();
+  }
+
+  function buildToolFilters(){
+    const cards = document.querySelectorAll('.timelineCard');
+    const toolsSet = new Set();
+
+    cards.forEach(card => {
+      const tools = (card.dataset.tools || '')
+        .split('|')
+        .map(t => t.trim())
+        .filter(Boolean);
+
+      tools.forEach(tool => toolsSet.add(tool));
+    });
+
+    const sortedTools = Array.from(toolsSet).sort((a, b) => a.localeCompare(b));
+    const container = document.getElementById('toolOptions');
+
+    container.innerHTML = sortedTools.map(tool => `
+      <label class="toolOption">
+        <input type="checkbox" class="toolCheck" value="${tool}" onchange="handleToolCheckChange()">
+        <span>${tool}</span>
+      </label>
+    `).join('');
+  }
+
+  function handleToolCheckChange(){
+    const viewAll = document.getElementById('viewAllTools');
+    const checkedTools = Array.from(document.querySelectorAll('.toolCheck:checked'));
+
+    if(checkedTools.length > 0){
+      viewAll.checked = false;
+    } else {
+      viewAll.checked = true;
+    }
+
+    applyFilters();
+  }
+
+  function applyFilters(){
+    const viewAll = document.getElementById('viewAllTools').checked;
+    const selectedTools = Array.from(document.querySelectorAll('.toolCheck:checked')).map(cb => cb.value);
+    const mode = document.querySelector('input[name="toolMode"]:checked').value;
+
+    document.querySelectorAll('.dropdownSection').forEach(section => {
+      const cards = section.querySelectorAll('.timelineCard');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(' ').filter(Boolean);
+        const tools = (card.dataset.tools || '').split('|').map(t => t.trim()).filter(Boolean);
+
+        const passesPrimary =
+          primaryFilter === 'all' ||
+          tags.includes(primaryFilter);
+
+        let passesTools = true;
+
+        if(!viewAll && selectedTools.length > 0){
+          if(mode === 'any'){
+            passesTools = selectedTools.some(tool => tools.includes(tool));
+          } else {
+            passesTools = selectedTools.every(tool => tools.includes(tool));
+          }
+        }
+
+        const shouldShow = passesPrimary && passesTools;
+        card.style.display = shouldShow ? 'block' : 'none';
+
+        if(shouldShow){
+          visibleCount++;
+        }
+      });
+
+      section.style.display = visibleCount > 0 ? 'block' : 'none';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    buildToolFilters();
+    applyFilters();
+  });
+</script>
