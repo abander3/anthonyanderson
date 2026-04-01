@@ -8,6 +8,8 @@
 </head>
 <body>
   <div class="container">
+
+    <!-- NAV -->
     <div class="topbar">
       <div class="brand">
         <div class="name">Anthony Anderson</div>
@@ -22,111 +24,216 @@
       </div>
     </div>
 
+    <!-- HERO -->
     <div class="hero">
-      <h1>Projects</h1>
-      <p>Space for polished project write-ups: purpose, tools, features, screenshots, and outcomes.</p>
+      <h1>Technical Projects with Real Operational Impact</h1>
+      <p>Interactive timelines of systems, tools, and process improvements I’ve built across manufacturing and software environments.</p>
     </div>
 
-    <div class="section">
-      <div class="sectionHeader">
-        <h2>Highlighted Projects</h2>
-        <div class="sub">Add images later by replacing the placeholders with real screenshots/photos.</div>
+    <!-- FILTER -->
+    <div class="filterBar">
+      <button class="filterBtn active" onclick="setFilter('all')">All</button>
+      <button class="filterBtn" onclick="setFilter('cs')">Computer Science</button>
+      <button class="filterBtn" onclick="setFilter('manf')">Manufacturing</button>
+    </div>
+
+    <!-- ========================= -->
+    <!-- INTERNSHIP PROJECTS -->
+    <!-- ========================= -->
+
+    <div class="dropdownSection">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
+        <h2>Internship Projects</h2>
+        <span>+</span>
       </div>
 
-      <div class="projectsGrid">
+      <div class="dropdownContent">
 
-        <!-- Project 1: Capstone -->
-        <div class="projectCard">
-          <div class="placeholderImg">
-            <div>
-              <strong>Capstone Image Placeholder</strong><br/>
-              Add 1–3 images (poster, prototype, results).<br/>
-              <span style="opacity:.75;">Suggested: /assets/capstone-1.jpg</span>
+        <div class="timeline">
+
+          <!-- CMMS -->
+          <div class="timelineCard" data-tags="cs manf" onclick="openModal('cmmsModal')">
+            <div class="timelineDate">2025</div>
+            <div class="timelineImg">CMMS</div>
+            <h3>Maintenance Management System</h3>
+            <p>Full-stack operational system for PM tracking, inventory, and reporting.</p>
+            <div class="tagRow">
+              <span>CS</span><span>Manufacturing</span>
             </div>
           </div>
-          <div class="projectBody">
-            <h3>Capstone (School)</h3>
-            <div class="metaRow">
-              <span class="badge">Category: Academic</span>
-              <span class="badge">Tools: (add later)</span>
-              <span class="badge">Role: (add later)</span>
+
+          <!-- 5S -->
+          <div class="timelineCard" data-tags="manf" onclick="openModal('fiveSModal')">
+            <div class="timelineDate">2025</div>
+            <div class="timelineImg">5S</div>
+            <h3>5S Workstation Project</h3>
+            <p>Lean workstation redesign focused on organization and efficiency.</p>
+            <div class="tagRow">
+              <span>Manufacturing</span>
             </div>
-            <p>
-              <em>Write a short overview here:</em> what problem you solved, why it mattered, and what you delivered.
-              (You can also move the Capstone to Education later — your call.)
-            </p>
-            <ul>
-              <li>Objective: (add)</li>
-              <li>Method: (add)</li>
-              <li>Outcome / Results: (add)</li>
-            </ul>
-            <div class="hint">Tip: Add a “Features” list, a “Tech Stack” line, and 2–4 screenshots.</div>
           </div>
+
+          <!-- Project Tracker -->
+          <div class="timelineCard" data-tags="cs" onclick="openModal('trackerModal')">
+            <div class="timelineDate">2024</div>
+            <div class="timelineImg">APP</div>
+            <h3>Project Tracking System</h3>
+            <p>Custom Power Apps dashboard for project visibility.</p>
+            <div class="tagRow">
+              <span>CS</span>
+            </div>
+          </div>
+
         </div>
-
-        <!-- Project 2: CMMS -->
-        <div class="projectCard">
-          <div class="placeholderImg">
-            <div>
-              <strong>CMMS Screenshot Placeholder</strong><br/>
-              Add app screens + data model diagram.<br/>
-              <span style="opacity:.75;">Suggested: /assets/cmms-1.jpg</span>
-            </div>
-          </div>
-          <div class="projectBody">
-            <h3>CMMS (Internship 2)</h3>
-            <div class="metaRow">
-              <span class="badge">Category: Work</span>
-              <span class="badge">Power Apps</span>
-              <span class="badge">SharePoint</span>
-              <span class="badge">Power BI</span>
-            </div>
-            <p>
-              <em>Put your system story here:</em> what the business needed, what you built, and how it works.
-              Later you can add “Key Screens”, “Workflow”, and “Architecture”.
-            </p>
-            <ul>
-              <li>Core modules: PM, inventory transfers, task results, dashboards (edit later)</li>
-              <li>Automation: approvals / notifications (edit later)</li>
-              <li>Impact: time saved / error reduction (add later)</li>
-            </ul>
-            <div class="hint">You can embed demo GIFs later (or link a short video).</div>
-          </div>
-        </div>
-
-        <!-- Project 3: Line Clearance Digitization -->
-        <div class="projectCard">
-          <div class="placeholderImg">
-            <div>
-              <strong>Line Clearance Placeholder</strong><br/>
-              Add process photos + app screens.<br/>
-              <span style="opacity:.75;">Suggested: /assets/lineclear-1.jpg</span>
-            </div>
-          </div>
-          <div class="projectBody">
-            <h3>Line Clearance Digitization (Internship 1)</h3>
-            <div class="metaRow">
-              <span class="badge">Category: Work</span>
-              <span class="badge">Digitization</span>
-              <span class="badge">Process Improvement</span>
-            </div>
-            <p>
-              <em>Describe the process and the win:</em> what the line clearance used to look like,
-              what you digitized, and what improved (compliance, speed, traceability, etc.).
-            </p>
-            <ul>
-              <li>Before: paper/manual steps (add later)</li>
-              <li>After: digital checks + audit trail (add later)</li>
-              <li>Outcome: fewer misses / faster turnaround (add later)</li>
-            </ul>
-            <div class="hint">If you want: add a small “Workflow” diagram image here.</div>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <div class="footer">Back to <a class="chip" href="index.html">Home</a></div>
+    <!-- ========================= -->
+    <!-- CME PROJECTS -->
+    <!-- ========================= -->
+
+    <div class="dropdownSection">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
+        <h2>CME Projects</h2>
+        <span>+</span>
+      </div>
+
+      <div class="dropdownContent">
+        <div class="timeline">
+
+          <div class="timelineCard" data-tags="manf">
+            <div class="timelineDate">2026</div>
+            <div class="timelineImg">CAP</div>
+            <h3>Capstone – Checkerboard</h3>
+            <p>End-to-end manufacturing and product build.</p>
+          </div>
+
+          <div class="timelineCard" data-tags="manf">
+            <div class="timelineDate">2025</div>
+            <div class="timelineImg">PARK</div>
+            <h3>Parker Hannifin</h3>
+            <p>Value stream mapping and process improvement.</p>
+          </div>
+
+          <div class="timelineCard" data-tags="manf">
+            <div class="timelineDate">2025</div>
+            <div class="timelineImg">NISS</div>
+            <h3>Nissan Project</h3>
+            <p>Takt time and workflow optimization study.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- EDUCATIONAL PROJECTS -->
+    <!-- ========================= -->
+
+    <div class="dropdownSection">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
+        <h2>Educational Projects</h2>
+        <span>+</span>
+      </div>
+
+      <div class="dropdownContent">
+        <div class="timeline">
+
+          <div class="timelineCard" data-tags="cs">
+            <div class="timelineDate">2024</div>
+            <div class="timelineImg">JAVA</div>
+            <h3>Data Structures Project</h3>
+            <p>Class-based implementation project.</p>
+            <div class="smallMeta">CSCI 251</div>
+          </div>
+
+          <div class="timelineCard" data-tags="cs">
+            <div class="timelineDate">2023</div>
+            <div class="timelineImg">C</div>
+            <h3>C Programming Project</h3>
+            <p>Low-level logic and system design.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- PASSION PROJECTS (HIDDEN) -->
+    <!-- ========================= -->
+    <!--
+    <div class="dropdownSection">
+      <div class="dropdownHeader">
+        <h2>Passion Projects</h2>
+      </div>
+    </div>
+    -->
+
   </div>
+
+  <!-- ========================= -->
+  <!-- MODALS -->
+  <!-- ========================= -->
+
+  <div id="cmmsModal" class="modal">
+    <div class="modalContent">
+      <span class="close" onclick="closeModal('cmmsModal')">&times;</span>
+      <h2>Maintenance Management System</h2>
+      <p>Detailed screenshots + system breakdown here.</p>
+      <div class="modalImages">
+        <div class="modalImg">Screenshot 1</div>
+        <div class="modalImg">Screenshot 2</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiveSModal" class="modal">
+    <div class="modalContent">
+      <span class="close" onclick="closeModal('fiveSModal')">&times;</span>
+      <h2>5S Workstation</h2>
+      <p>Before/after + lean explanation.</p>
+    </div>
+  </div>
+
+  <div id="trackerModal" class="modal">
+    <div class="modalContent">
+      <span class="close" onclick="closeModal('trackerModal')">&times;</span>
+      <h2>Project Tracker</h2>
+      <p>Dashboard screenshots and logic.</p>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!-- JS -->
+  <!-- ========================= -->
+
+  <script>
+    function toggleDropdown(el) {
+      const content = el.nextElementSibling;
+      content.classList.toggle("open");
+    }
+
+    function openModal(id){
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id){
+      document.getElementById(id).style.display = "none";
+    }
+
+    function setFilter(type){
+      document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.querySelectorAll('.timelineCard').forEach(card => {
+        if(type === 'all'){
+          card.style.display = "block";
+        } else {
+          card.style.display = card.dataset.tags.includes(type) ? "block" : "none";
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
