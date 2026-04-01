@@ -9,7 +9,6 @@
 <body>
   <div class="container">
 
-    <!-- NAV -->
     <div class="topbar">
       <div class="brand">
         <div class="name">Anthony Anderson</div>
@@ -24,36 +23,32 @@
       </div>
     </div>
 
-    <!-- HERO -->
     <div class="hero">
       <h1>Technical Projects with Real Operational Impact</h1>
       <p>Interactive timelines of systems, tools, and process improvements I’ve built across manufacturing and software environments.</p>
     </div>
 
-    <!-- FILTER -->
     <div class="filterBar">
-      <button class="filterBtn active" onclick="setFilter('all')">All</button>
-      <button class="filterBtn" onclick="setFilter('cs')">Computer Science</button>
-      <button class="filterBtn" onclick="setFilter('manf')">Manufacturing</button>
+      <button class="filterBtn active" onclick="setFilter(event,'all')">All</button>
+      <button class="filterBtn" onclick="setFilter(event,'cs')">Computer Science</button>
+      <button class="filterBtn" onclick="setFilter(event,'manf')">Manufacturing</button>
     </div>
 
-    <!-- ========================= -->
     <!-- INTERNSHIP PROJECTS -->
-    <!-- ========================= -->
-
     <div class="dropdownSection">
       <div class="dropdownHeader" onclick="toggleDropdown(this)">
         <h2>Internship Projects</h2>
-        <span>+</span>
+        <span class="dropdownIcon">+</span>
       </div>
 
       <div class="dropdownContent open">
-
         <div class="timeline">
 
-          <!-- CMMS -->
           <div class="timelineCard" data-tags="cs manf" onclick="openModal('cmmsModal')">
-            <div class="timelineDate">2025</div>
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 01/26</div>
+              <div class="timelineOrg">Insituform</div>
+            </div>
             <div class="timelineImg">CMMS</div>
             <h3>Maintenance Management System</h3>
             <p>Full-stack operational system for PM tracking, inventory, and reporting.</p>
@@ -62,23 +57,172 @@
             </div>
           </div>
 
-          <!-- 5S -->
+          <div class="timelineCard" data-tags="cs manf" onclick="openModal('trackerModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 01/26</div>
+              <div class="timelineOrg">Insituform</div>
+            </div>
+            <div class="timelineImg">TRACK</div>
+            <h3>Project Tracker</h3>
+            <p>Custom project tracking system tying together visibility, updates, and workflow structure.</p>
+            <div class="tagRow">
+              <span>CS</span><span>Manufacturing</span>
+            </div>
+          </div>
+
           <div class="timelineCard" data-tags="manf" onclick="openModal('fiveSModal')">
-            <div class="timelineDate">2025</div>
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 01/26</div>
+              <div class="timelineOrg">Insituform</div>
+            </div>
             <div class="timelineImg">5S</div>
             <h3>5S Workstation Project</h3>
-            <p>Lean workstation redesign focused on organization and efficiency.</p>
+            <p>Lean workstation redesign focused on organization, usability, and efficiency.</p>
             <div class="tagRow">
               <span>Manufacturing</span>
             </div>
           </div>
 
-          <!-- Project Tracker -->
-          <div class="timelineCard" data-tags="cs" onclick="openModal('trackerModal')">
-            <div class="timelineDate">2024</div>
+          <div class="timelineCard" data-tags="cs manf" onclick="openModal('startupModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 01/25</div>
+              <div class="timelineOrg">Corelle</div>
+            </div>
+            <div class="timelineImg">START</div>
+            <h3>Start-Up Checklist</h3>
+            <p>Digital checklist workflow designed to improve process consistency and traceability.</p>
+            <div class="tagRow">
+              <span>CS</span><span>Manufacturing</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="cs manf" onclick="openModal('lineClearanceModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 08/24</div>
+              <div class="timelineOrg">Corelle</div>
+            </div>
+            <div class="timelineImg">LINE</div>
+            <h3>Line Clearance Checklist</h3>
+            <p>Digitized process checks to support line readiness, standardization, and cleaner documentation.</p>
+            <div class="tagRow">
+              <span>CS</span><span>Manufacturing</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CME PROJECTS -->
+    <div class="dropdownSection">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
+        <h2>CME Projects</h2>
+        <span class="dropdownIcon">+</span>
+      </div>
+
+      <div class="dropdownContent open">
+        <div class="timeline">
+
+          <div class="timelineCard" data-tags="manf" onclick="openModal('capstoneModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 04/26</div>
+              <div class="timelineOrg">CME</div>
+            </div>
+            <div class="timelineImg">CAP</div>
+            <h3>Capstone – Checkerboard</h3>
+            <p>End-to-end manufacturing capstone involving design, fabrication, and final product execution.</p>
+            <div class="tagRow">
+              <span>Manufacturing</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="manf" onclick="openModal('parkerModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 10/25</div>
+              <div class="timelineOrg">Parker Hannifin</div>
+            </div>
+            <div class="timelineImg">PARK</div>
+            <h3>Parker Hannifin VSM Project</h3>
+            <p>Value stream mapping project focused on process visibility and identifying improvement opportunities.</p>
+            <div class="tagRow">
+              <span>Manufacturing</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="manf" onclick="openModal('nissanModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 09/25</div>
+              <div class="timelineOrg">Nissan</div>
+            </div>
+            <div class="timelineImg">NISS</div>
+            <h3>Nissan Takt Time &amp; Line Balancing</h3>
+            <p>Process study centered on takt time analysis, balancing work content, and improving flow.</p>
+            <div class="tagRow">
+              <span>Manufacturing</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="manf" onclick="openModal('tapeModal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked 04/25</div>
+              <div class="timelineOrg">CME</div>
+            </div>
+            <div class="timelineImg">TAPE</div>
+            <h3>Tape Dispenser Creation</h3>
+            <p>Manufacturing-focused build project involving design decisions, production steps, and physical output.</p>
+            <div class="tagRow">
+              <span>Manufacturing</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATIONAL PROJECTS -->
+    <div class="dropdownSection">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
+        <h2>Educational Projects</h2>
+        <span class="dropdownIcon">+</span>
+      </div>
+
+      <div class="dropdownContent open">
+        <div class="timeline">
+
+          <div class="timelineCard" data-tags="cs" onclick="openModal('edu1Modal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked MM/YY</div>
+              <div class="timelineOrg">Class Name</div>
+            </div>
+            <div class="timelineImg">CODE</div>
+            <h3>Coding Project One</h3>
+            <p>Placeholder for a class-based programming project with description space.</p>
+            <div class="tagRow">
+              <span>CS</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="cs" onclick="openModal('edu2Modal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked MM/YY</div>
+              <div class="timelineOrg">Class Name</div>
+            </div>
             <div class="timelineImg">APP</div>
-            <h3>Project Tracking System</h3>
-            <p>Custom Power Apps dashboard for project visibility.</p>
+            <h3>Coding Project Two</h3>
+            <p>Placeholder for another educational project with room for screenshots and tools.</p>
+            <div class="tagRow">
+              <span>CS</span>
+            </div>
+          </div>
+
+          <div class="timelineCard" data-tags="cs" onclick="openModal('edu3Modal')">
+            <div class="timelineTop">
+              <div class="timelineDate">Last Worked MM/YY</div>
+              <div class="timelineOrg">Class Name</div>
+            </div>
+            <div class="timelineImg">SYS</div>
+            <h3>Coding Project Three</h3>
+            <p>Placeholder for a third technical project from coursework.</p>
             <div class="tagRow">
               <span>CS</span>
             </div>
@@ -88,142 +232,295 @@
       </div>
     </div>
 
-    <!-- ========================= -->
-    <!-- CME PROJECTS -->
-    <!-- ========================= -->
-
-    <div class="dropdownSection">
-      <div class="dropdownHeader" onclick="toggleDropdown(this)">
-        <h2>CME Projects</h2>
-        <span>+</span>
-      </div>
-
-      <div class="dropdownContent open">
-        <div class="timeline">
-
-          <div class="timelineCard" data-tags="manf">
-            <div class="timelineDate">2026</div>
-            <div class="timelineImg">CAP</div>
-            <h3>Capstone – Checkerboard</h3>
-            <p>End-to-end manufacturing and product build.</p>
-          </div>
-
-          <div class="timelineCard" data-tags="manf">
-            <div class="timelineDate">2025</div>
-            <div class="timelineImg">PARK</div>
-            <h3>Parker Hannifin</h3>
-            <p>Value stream mapping and process improvement.</p>
-          </div>
-
-          <div class="timelineCard" data-tags="manf">
-            <div class="timelineDate">2025</div>
-            <div class="timelineImg">NISS</div>
-            <h3>Nissan Project</h3>
-            <p>Takt time and workflow optimization study.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ========================= -->
-    <!-- EDUCATIONAL PROJECTS -->
-    <!-- ========================= -->
-
-    <div class="dropdownSection">
-      <div class="dropdownHeader" onclick="toggleDropdown(this)">
-        <h2>Educational Projects</h2>
-        <span>+</span>
-      </div>
-
-      <div class="dropdownContent open">
-        <div class="timeline">
-
-          <div class="timelineCard" data-tags="cs">
-            <div class="timelineDate">2024</div>
-            <div class="timelineImg">JAVA</div>
-            <h3>Data Structures Project</h3>
-            <p>Class-based implementation project.</p>
-            <div class="smallMeta">CSCI 251</div>
-          </div>
-
-          <div class="timelineCard" data-tags="cs">
-            <div class="timelineDate">2023</div>
-            <div class="timelineImg">C</div>
-            <h3>C Programming Project</h3>
-            <p>Low-level logic and system design.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ========================= -->
-    <!-- PASSION PROJECTS (HIDDEN) -->
-    <!-- ========================= -->
+    <!-- PASSION PROJECTS -->
     <!--
     <div class="dropdownSection">
-      <div class="dropdownHeader">
+      <div class="dropdownHeader" onclick="toggleDropdown(this)">
         <h2>Passion Projects</h2>
+        <span class="dropdownIcon">+</span>
+      </div>
+      <div class="dropdownContent">
+        <div class="timeline"></div>
       </div>
     </div>
     -->
 
   </div>
 
-  <!-- ========================= -->
   <!-- MODALS -->
-  <!-- ========================= -->
 
   <div id="cmmsModal" class="modal">
     <div class="modalContent">
-      <span class="close" onclick="closeModal('cmmsModal')">&times;</span>
-      <h2>Maintenance Management System</h2>
-      <p>Detailed screenshots + system breakdown here.</p>
-      <div class="modalImages">
-        <div class="modalImg">Screenshot 1</div>
-        <div class="modalImg">Screenshot 2</div>
+      <button class="closeBtn" onclick="closeModal('cmmsModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Insituform • Last Worked 01/26</div>
+          <h2>Maintenance Management System</h2>
+        </div>
+        <div class="modalTools">Tools: Power Apps, SharePoint, Power Automate, Power BI</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="trackerModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('trackerModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Insituform • Last Worked 01/26</div>
+          <h2>Project Tracker</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
       </div>
     </div>
   </div>
 
   <div id="fiveSModal" class="modal">
     <div class="modalContent">
-      <span class="close" onclick="closeModal('fiveSModal')">&times;</span>
-      <h2>5S Workstation</h2>
-      <p>Before/after + lean explanation.</p>
+      <button class="closeBtn" onclick="closeModal('fiveSModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Insituform • Last Worked 01/26</div>
+          <h2>5S Workstation Project</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
     </div>
   </div>
 
-  <div id="trackerModal" class="modal">
+  <div id="startupModal" class="modal">
     <div class="modalContent">
-      <span class="close" onclick="closeModal('trackerModal')">&times;</span>
-      <h2>Project Tracker</h2>
-      <p>Dashboard screenshots and logic.</p>
+      <button class="closeBtn" onclick="closeModal('startupModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Corelle • Last Worked 01/25</div>
+          <h2>Start-Up Checklist</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
     </div>
   </div>
 
-  <!-- ========================= -->
-  <!-- JS -->
-  <!-- ========================= -->
+  <div id="lineClearanceModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('lineClearanceModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Corelle • Last Worked 08/24</div>
+          <h2>Line Clearance Checklist</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="capstoneModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('capstoneModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">CME • Last Worked 04/26</div>
+          <h2>Capstone – Checkerboard</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="parkerModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('parkerModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Parker Hannifin • Last Worked 10/25</div>
+          <h2>Parker Hannifin VSM Project</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="nissanModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('nissanModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Nissan • Last Worked 09/25</div>
+          <h2>Nissan Takt Time &amp; Line Balancing</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tapeModal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('tapeModal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">CME • Last Worked 04/25</div>
+          <h2>Tape Dispenser Creation</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="edu1Modal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('edu1Modal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Class Name • Last Worked MM/YY</div>
+          <h2>Coding Project One</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="edu2Modal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('edu2Modal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Class Name • Last Worked MM/YY</div>
+          <h2>Coding Project Two</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="edu3Modal" class="modal">
+    <div class="modalContent">
+      <button class="closeBtn" onclick="closeModal('edu3Modal')">&times;</button>
+      <div class="modalHeader">
+        <div>
+          <div class="modalEyebrow">Class Name • Last Worked MM/YY</div>
+          <h2>Coding Project Three</h2>
+        </div>
+        <div class="modalTools">Tools: Add tools here</div>
+      </div>
+      <div class="modalGrid">
+        <div class="modalShot">Screenshot 1</div>
+        <div class="modalDesc">Description 1</div>
+        <div class="modalShot">Screenshot 2</div>
+        <div class="modalDesc">Description 2</div>
+        <div class="modalShot">Screenshot 3</div>
+        <div class="modalDesc">Description 3</div>
+      </div>
+    </div>
+  </div>
 
   <script>
     function toggleDropdown(el) {
       const content = el.nextElementSibling;
       content.classList.toggle("open");
+      el.classList.toggle("active");
     }
 
     function openModal(id){
       document.getElementById(id).style.display = "flex";
+      document.body.style.overflow = "hidden";
     }
 
     function closeModal(id){
       document.getElementById(id).style.display = "none";
+      document.body.style.overflow = "";
     }
 
-    function setFilter(type){
+    function setFilter(e, type){
       document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+      e.currentTarget.classList.add('active');
 
       document.querySelectorAll('.timelineCard').forEach(card => {
         if(type === 'all'){
@@ -233,7 +530,15 @@
         }
       });
     }
-  </script>
 
+    window.addEventListener('click', function(e){
+      document.querySelectorAll('.modal').forEach(modal => {
+        if(e.target === modal){
+          modal.style.display = 'none';
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
