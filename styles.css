@@ -1285,59 +1285,76 @@ a{color:inherit;text-decoration:none}
 /* ---------- about page enhancements ---------- */
 
 .aboutBannerCard{
-  position:relative;
-  margin-top:22px;
-  min-height:260px;
-  overflow:hidden;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,0.14);
-  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  box-shadow:var(--shadow2);
-}
-
-.aboutBannerImg{
-  display:block;
-  width:100%;
-  height:260px;
-  object-fit:cover;
+  position: relative;
+  margin-top: 22px;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: var(--shadow2);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+    url("assets/about-banner.JPG");
+  background-size: cover;
+  background-position: center 32%;
+  background-repeat: no-repeat;
 }
 
 .aboutBannerOverlay{
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(180deg, rgba(4,10,22,0.14), rgba(4,10,22,0.58)),
-    linear-gradient(90deg, rgba(4,10,22,0.70), rgba(4,10,22,0.14));
+    linear-gradient(180deg, rgba(4,10,22,0.12), rgba(4,10,22,0.60)),
+    linear-gradient(90deg, rgba(4,10,22,0.72), rgba(4,10,22,0.18) 58%, rgba(4,10,22,0.30));
 }
 
 .aboutBannerText{
-  position:absolute;
-  left:24px;
-  bottom:22px;
-  right:24px;
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  z-index: 2;
 }
 
 .aboutBannerEyebrow{
-  display:inline-flex;
-  align-items:center;
-  padding:8px 12px;
-  margin-bottom:12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.16);
-  background:rgba(255,255,255,0.08);
-  color:rgba(255,255,255,0.84);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.45px;
-  text-transform:uppercase;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.84);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .45px;
+  text-transform: uppercase;
 }
 
 .aboutBannerText h2{
-  margin:0;
-  max-width:20ch;
-  font-size:clamp(28px,4vw,44px);
-  line-height:1.02;
-  letter-spacing:-.8px;
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -.8px;
+}
+
+@media (max-width: 920px){
+  .aboutBannerCard{
+    min-height: 240px;
+    background-position: center 25%;
+  }
+
+  .aboutBannerText{
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .aboutBannerText h2{
+    max-width: 100%;
+    font-size: clamp(24px, 7vw, 34px);
+  }
 }
 
 .aboutSplit{
