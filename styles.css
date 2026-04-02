@@ -1034,18 +1034,23 @@ a{color:inherit;text-decoration:none}
 }
 
 .timelineImg{
-  display:flex;
-  align-items:center;
-  justify-content:center;
   height:130px;
   margin-bottom:14px;
   border-radius:16px;
   border:1px solid rgba(255,255,255,0.08);
-  background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-  color:rgba(255,255,255,0.82);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.5px;
+  background:rgba(255,255,255,0.04);
+  overflow:hidden;         
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.timelineImg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;    
+  display:block;
+  filter:brightness(0.92) contrast(1.05);
 }
 
 .timelineCard h3{
