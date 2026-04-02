@@ -99,7 +99,7 @@
 
           <div class="timelineCard"
      data-tags="cs manf"
-     data-tools="Power Apps|Project Management|Microsoft Lists|Power BI|Documentation"
+     data-tools="Power Apps|Project Management|Microsoft Lists|Power BI|Documentation|Engineering"
      onclick="openModal('trackerModal')">
             <div class="timelineTop">
               <div class="timelineDate">Last Worked 03/26</div>
@@ -334,7 +334,8 @@
       </div>
       <div class="modalDesc">
         <strong>Transaction Updater</strong><br><br>
-        Write your description here.
+        This is what a part/inventory editing screen would look like. Parts would be selected from already existing database, their counts updated based on use,
+        and if too much is consumed, email chain is triggered as a "Reorder Threshold" has been hit. Every individual transaction is also logged.
       </div>
 
       <div class="modalShot imageShot">
@@ -342,9 +343,10 @@
       </div>
       <div class="modalDesc">
         <strong>Personnel Updater + Work Order Assignment</strong><br><br>
-        Main image: Personnel Updater.<br><br>
-        Also reference: <code>assets/imgAssignWO.png</code><br><br>
-        Write your description here.
+        <a href="https://abander3.github.io/anthonyanderson/assets/imgAssignWO.png">Assignment Screen</a>
+        This screen acts as a CRUD interface for "personnel" (so employees, essentially maintenance). All data is stored for each user including emails,
+        which allows for dynamic chains in regards to assignment (view the link above for the Assignment Screen). Functionality also exists to edit management
+        and admin roles.
       </div>
 
       <div class="modalShot imageShot">
@@ -352,7 +354,9 @@
       </div>
       <div class="modalDesc">
         <strong>Forklift PM</strong><br><br>
-        Write your description here.
+        The preventative maintenance functions of this app are essentially half of it's purpose. One half is what we discussed earlier with assignment, as it is
+        maintenance requests. Now, we are working with preventative maintenance, but still accessing the same parts/equipment/personnel database so all potential
+        part inventory changes are kept up with across multiple different business functions. Pictured is 1 preventative maintenance form for forklifts.
       </div>
 
       <div class="modalShot imageShot">
@@ -360,7 +364,9 @@
       </div>
       <div class="modalDesc">
         <strong>Databases / Backend Structure</strong><br><br>
-        Write your description here.
+        Pictured is the normalized database that these two functions primarily run on. MR_Requests and PM_Metadata store metadata for maintenance requests and
+        preventative maintenance respectively. PM_Parts contains the inventory file, and data that gets changed by both functions. PM_Tasks, PM_Equipment, and MR_MaintenanceUsers
+        store hard-coded entries of tasks, equipment, and personnel respectively. PM_InventoryTransfers will list all transactions and PM_Results will list all PM checkbox values.
       </div>
     </div>
   </div>
@@ -382,7 +388,9 @@
       </div>
       <div class="modalDesc">
         <strong>Read View</strong><br><br>
-        Write your description here.
+        This view is to be primarily used in Engineering meetings. Upon the creation of new projects, the team will
+        need to keep track of all of their current projects and update their status. This view gives them all the info
+        they need to perform these functions as well as options to edit/create/delete entries.
       </div>
 
       <div class="modalShot imageShot">
@@ -390,7 +398,9 @@
       </div>
       <div class="modalDesc">
         <strong>Create View</strong><br><br>
-        Write your description here.
+        Here is the view from the CREATE side. There is more data that is stored behind the scenes, but is necessary for
+        tracking purposes. The EDIT functionality is also packed into here, as edit will simply autofill existing data and
+        provide the means to change it.
       </div>
 
       <div class="modalShot imageShot">
@@ -398,7 +408,8 @@
       </div>
       <div class="modalDesc">
         <strong>Data / Backend View</strong><br><br>
-        Write your description here.
+        As this project was scrapped, I never fully normalized the database. Microsoft Lists was the backend and stored every
+        bit of data for each project on a single line. For purposes of PowerBI, it sufficed for management.
       </div>
     </div>
   </div>
@@ -421,7 +432,10 @@
       </div>
       <div class="modalDesc">
         <strong>5S Workstation</strong><br><br>
-        Write your description here.
+        A project I worked on mostly on the side, the plant was in need of organization across every workstation in the plant.
+        In order to regulate this, I grabbed pictures of every work station in it's current state and built a system for standardizing
+        5S Kaizen events. In each document, the set-up is pictured and on the back is a grading scorecard for operators to ensure they
+        have a clean, organized station.
       </div>
     </div>
   </div>
@@ -444,7 +458,9 @@
       </div>
       <div class="modalDesc">
         <strong>Start Screen</strong><br><br>
-        Write your description here.
+        A form that must be created new for every job, the line-clearance form was passed among every department in the plant
+        before confirmation was made and a job was started. As a result, the paper had to be carried around the plant for a long time,
+        and therefore digitization was needed. Upon opening the app, the user selects their function on the form and is brought to ONLY their section.
       </div>
 
       <div class="modalShot imageShot">
@@ -452,15 +468,19 @@
       </div>
       <div class="modalDesc">
         <strong>Mixer Checklist</strong><br><br>
-        Write your description here.
+        This is simply one of the sections for the Mixer. All inputs across all sections were added on to the same dataverse line as they progressed.
+        When completed, there is an option to view the filled form (like was available with paper). Instead of one at a time, however, any function
+        that could run in parallel with another could be performed without the order, so long as everything is cleared for the next step.
       </div>
 
       <div class="modalShot imageShot">
-        <img src="assets/imgLineClearanceDATA.png" alt="Checklist data / backend view">
+        <img src="assets/imgLineClearance.jpeg" alt="Checklist data / backend view">
       </div>
       <div class="modalDesc">
         <strong>Data / Backend View</strong><br><br>
-        Write your description here.
+        Pictured is the current KPI board that uses this app's collected data. The plant still runs the app every day to this day now,
+        as it continues tracking status of every line in the plant based on the status of this line clearance form. All databases
+        at my time of creation was through Microsoft Dataverse, but has likely now transitioned to SQL as time has progressed.
       </div>
     </div>
   </div>
@@ -471,18 +491,15 @@
       <button class="closeBtn" onclick="closeModal('capstoneModal')">&times;</button>
       <div class="modalHeader">
         <div>
-          <div class="modalEyebrow">CME • Last Worked 04/26</div>
+          <div class="modalEyebrow">CME • Last Worked </div>
           <h2>Capstone – Checkerboard</h2>
         </div>
-        <div class="modalTools">Tools: Add tools here</div>
+        <div class="modalTools">Tools:</div>
       </div>
       <div class="modalGrid">
-        <div class="modalShot">Screenshot 1</div>
-        <div class="modalDesc">Description 1</div>
-        <div class="modalShot">Screenshot 2</div>
-        <div class="modalDesc">Description 2</div>
-        <div class="modalShot">Screenshot 3</div>
-        <div class="modalDesc">Description 3</div>
+        <div class="modalShot">Work in progress...</div>
+        <div class="modalDesc">Work in progress...</div>
+        
       </div>
     </div>
   </div>
@@ -505,15 +522,14 @@
 </div>
 <div class="modalDesc">
   <strong>Current State Map</strong><br><br>
-  Current-state value stream map documenting the existing production flow, process timing, and waiting periods across the line. This version captures the baseline condition before improvement work and highlights where time and flow losses were occurring.
-</div>
+  This was a current state map I drew up in LucidChart. Parker Hannifin was willing to give us data on their current state so that we can attempt to lean out a portion of their business as a team. Multiple teams attacked different areas.
 
 <div class="modalShot imageShot">
   <img src="assets/futureVSM.png" alt="Future State Value Stream Map">
 </div>
 <div class="modalDesc">
   <strong>Future State Map</strong><br><br>
-  Future-state value stream map showing the proposed process after improvements. The goal was to reduce waste, improve flow, and create a more efficient state through lean analysis and takt-based thinking.
+  Future-state value stream map showing the time differences after considering our changes. Every team was required to present their findings to the Parker team, the CME administration, and even Mississippi development teams.
 </div>
 
       <div class="modalShot imageShot">
@@ -521,7 +537,8 @@
       </div>
       <div class="modalDesc">
         <strong>Project / Team Photo</strong><br><br>
-        Write your description here.
+        Our team worked at the hose products division of Parker Hannifin in Batesville, MS. Each member of the team had a different major or focus, some financial, engineering, computer science, or even business. The teams were mostly
+        left on their own to work, as organizational people were needed in multiple different places, so this was one of my earlier exposures to working as a team toward an unset goal.
       </div>
     </div>
   </div>
@@ -544,7 +561,9 @@
       </div>
       <div class="modalDesc tallDesc">
         <strong>Kaizen / Project Image</strong><br><br>
-        Write your description here.
+          Unfortunately, I did not grab as many photos from this as I would've liked. Pictured are the two rows of tables, each with Kaizen stations. The two rows of tables competed with making the assembly process of a model car as lean as
+        possible. My main assignment on my team was setting up and building the Kaizen stations (we were alloted cardboard, PVC pipes and masking tape, nothing else at all), so I spent a good deal of time comparing different motion requirements
+        for the task in order to eliminate the need to move.
       </div>
     </div>
   </div>
@@ -558,15 +577,11 @@
           <div class="modalEyebrow">CME • Last Worked 04/25</div>
           <h2>Tape Dispenser Creation</h2>
         </div>
-        <div class="modalTools">Tools: Add tools here</div>
+        <div class="modalTools">Tools:</div>
       </div>
       <div class="modalGrid">
-        <div class="modalShot">Screenshot 1</div>
-        <div class="modalDesc">Description 1</div>
-        <div class="modalShot">Screenshot 2</div>
-        <div class="modalDesc">Description 2</div>
-        <div class="modalShot">Screenshot 3</div>
-        <div class="modalDesc">Description 3</div>
+        <div class="modalShot">Work in progress...</div>
+        <div class="modalDesc">Work in progress...</div>
       </div>
     </div>
   </div>
